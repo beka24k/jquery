@@ -1,0 +1,13 @@
+#changeBackgroundBtn{}
+#elementToChange {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+  background-image: url("tile.png");
+}
+#box {
+  background: lightblue;
+  height: 100px;
+  width: 100px;
+  margin: 6px;
+}

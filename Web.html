@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="stylessheet.css">
+</head>
+<body>
+<h2>Task 1: Show/Hide Password</h2>
+<input type="password" id="password">
+<button id="showPassword">Show/Hide Password</button>
+
+<h2>Task 2: Disable Submit Button</h2>
+<form>
+  <label for="agreeCheckbox">I agree to the terms and conditions:</label>
+  <input type="checkbox" id="agreeCheckbox">
+  <button type="submit" id="submitBtn" disabled>Submit</button>
+</form>
+
+<h2>Task 3: Scroll to Top</h2>
+<button id="scrollToTopBtn">Scroll to Top</button>
+
+<h2>Task 4: Set Background Image</h2>
+<button id="changeBackgroundBtn"  >Change Background Image</button>
+<div id="elementToChange" >This is the element with background</div>
+
+<h2>Task 5: Limit Character Input</h2>
+<form>
+  <label>Maximum 15 characters</label>
+  <textarea id="textarea" maxlength="15"></textarea>
+  <span id="charCount">15 characters remaining</span>
+</form>
+
+<h2>Task 6: Animate Paragraph Fade</h2>
+<p>Click this paragraph to see it fade.</p>
+
+<h2>Task 7: Animate Height & Width</h2>
+<button id="btn1">Animate height & width</button>
+<button id="btn2">Reset</button>
+<div id="box"></div>
+
+<script>
+  // Task 1
+  $(document).ready(function(){
+    $('#showPassword').click(function(){
+      var passwordField = $('#password');
+      if (passwordField.attr('type') === 'password') {
+        passwordField.attr('type', 'text');
+      } else {
+        passwordField.attr('type', 'password');
+      }
+    });
+  });
+
+  // Task 2
+  $(document).ready(function(){
+    $('#agreeCheckbox').click(function(){
+      var submitButton = $('#submitBtn');
+      submitButton.prop('disabled', !this.checked);
+    });
+  });
+
+  // Task 3
+  $(document).ready(function(){
+    $('#scrollToTopBtn').click(function(){
+      $('html, body').animate({scrollTop: 0}, 500);
+    });
+  });
+
+  // Task 4
+  $(document).ready(function(){
+    $('#changeBackgroundBtn').click(function(){
+      $('#elementToChange').css('background-image', 'url("your-image-url.jpg")');
+    });
+  });
+
+  // Task 5
+  $(document).ready(function(){
+    $('#textarea').on('input', function(){
+      var maxLength = $(this).attr('maxlength');
+      var currentLength = $(this).val().length;
+      $('#charCount').text(maxLength - currentLength + ' characters remaining');
+    });
+  });
+
+  // Task 6
+  $(document).ready(function(){
+    $('p').click(function(){
+      $(this).animate({opacity: 0}, 2000);
+    });
+  });
+
+  // Task 7
+  $(document).ready(function(){
+    $('#btn1').click(function(){
+      $('#box').animate({height: '200px', width: '200px'}, 1000);
+    });
+    $('#btn2').click(function(){
+      $('#box').animate({height: '100px', width: '100px'}, 1000);
+    });
+  });
+</script>
+</body>
+</html>
